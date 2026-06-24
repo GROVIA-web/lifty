@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
     <header class="site-header" data-header>
       <a class="brand" href="#inicio" aria-label="Lifty, ir al inicio">
         <img src="assets/lifty-logo.png" alt="Lifty" />
@@ -37,7 +38,7 @@
       </nav>
     </header>
 
-    <main>
+    <main id="contenido">
       <section class="hero section-anchor" id="inicio">
         <div class="map-texture" aria-hidden="true"></div>
         <div class="hero-route route-a" aria-hidden="true"><i></i><i></i></div>
@@ -72,6 +73,7 @@
               class="hero-phone"
               src="assets/hero-product.jpg"
               alt="Mockup de la aplicación Lifty mostrando un viaje"
+              fetchpriority="high"
             />
 
             <article class="float-card verified-card">
@@ -140,7 +142,12 @@
 
           <div class="ecosystem-visual reveal">
             <div class="visual-grid" aria-hidden="true"></div>
-            <img src="assets/lifty-ecosystem.jpg" alt="Ecosistema digital y móvil de Lifty" />
+            <img
+              src="assets/lifty-ecosystem.jpg"
+              alt="Ecosistema digital y móvil de Lifty"
+              loading="lazy"
+              decoding="async"
+            />
             <span class="ecosystem-label label-app">Aplicación</span>
             <span class="ecosystem-label label-control">Gestión</span>
             <span class="ecosystem-label label-city">Ciudad</span>
@@ -195,6 +202,8 @@
             <img
               src="assets/passenger-flow.jpg"
               alt="Pantallas del flujo de viaje de la aplicación Lifty"
+              loading="lazy"
+              decoding="async"
             />
             <span class="flow-badge origin-badge"><i class="mini-pin"></i> Origen</span>
             <span class="flow-badge destination-badge"><i class="mini-pin"></i> Destino</span>
@@ -227,7 +236,12 @@
           <div class="security-layout">
             <div class="security-mockup reveal">
               <div class="mockup-halo"></div>
-              <img src="assets/hero-product.jpg" alt="Pantalla de seguridad y seguimiento de Lifty" />
+              <img
+                src="assets/hero-product.jpg"
+                alt="Pantalla de seguridad y seguimiento de Lifty"
+                loading="lazy"
+                decoding="async"
+              />
               <article class="security-float security-driver">
                 <span class="avatar-symbol"></span>
                 <div><small>Identidad</small><strong>Conductor validado</strong></div>
@@ -356,7 +370,12 @@
       <section class="section status-section section-anchor" id="estado">
         <div class="container status-layout">
           <div class="status-dashboard reveal">
-            <img src="assets/admin-dashboard.jpg" alt="Panel administrativo proyectado de Lifty" />
+            <img
+              src="assets/admin-dashboard.jpg"
+              alt="Panel administrativo proyectado de Lifty"
+              loading="lazy"
+              decoding="async"
+            />
             <div class="dashboard-label">
               <span class="pulse-dot"></span>
               <div><small>Control operativo</small><strong>Panel en desarrollo</strong></div>

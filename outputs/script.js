@@ -3,8 +3,10 @@ const nav = document.querySelector("[data-nav]");
 const navToggle = document.querySelector("[data-nav-toggle]");
 const revealItems = document.querySelectorAll(".reveal");
 const contactForm = document.querySelector("#contact-form");
-const audienceButtons = document.querySelectorAll("[data-audience]");
-const audiencePanels = document.querySelectorAll("[data-panel]");
+const navLinks = document.querySelectorAll('.main-nav a[href^="#"]:not(.nav-cta)');
+const trackedSections = [...navLinks]
+  .map((link) => document.querySelector(link.getAttribute("href")))
+  .filter(Boolean);
 
 navToggle?.addEventListener("click", () => {
   const isOpen = nav.classList.toggle("is-open");
@@ -24,18 +26,13 @@ window.addEventListener("scroll", () => {
   header?.classList.toggle("is-scrolled", window.scrollY > 12);
 });
 
-audienceButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const selectedAudience = button.dataset.audience;
-
-    audienceButtons.forEach((item) => {
-      item.classList.toggle("is-active", item === button);
-    });
-
-    audiencePanels.forEach((panel) => {
-      panel.hidden = panel.dataset.panel !== selectedAudience;
-    });
-  });
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && nav?.classList.contains("is-open")) {
+    nav.classList.remove("is-open");
+    navToggle?.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("nav-open");
+    navToggle?.focus();
+  }
 });
 
 if ("IntersectionObserver" in window) {
@@ -51,7 +48,30 @@ if ("IntersectionObserver" in window) {
     { threshold: 0.12 }
   );
 
-  revealItems.forEach((item) => revealObserver.observe(item));
+  revealItems.forEach((item, index) => {
+    item.style.setProperty("--reveal-delay", `${Math.min(index % 4, 3) * 70}ms`);
+    revealObserver.observe(item);
+  });
+
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      const visibleSection = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+      if (!visibleSection) return;
+
+      navLinks.forEach((link) => {
+        const isActive = link.getAttribute("href") === `#${visibleSection.target.id}`;
+        link.classList.toggle("is-active", isActive);
+        if (isActive) link.setAttribute("aria-current", "page");
+        else link.removeAttribute("aria-current");
+      });
+    },
+    { rootMargin: "-25% 0px -60% 0px", threshold: [0.05, 0.2, 0.5] }
+  );
+
+  trackedSections.forEach((section) => sectionObserver.observe(section));
 } else {
   revealItems.forEach((item) => item.classList.add("is-visible"));
 }
@@ -70,8 +90,19 @@ function setFieldError(field, message) {
   const error = row?.querySelector(".error-message");
 
   row?.classList.toggle("has-error", Boolean(message));
+  field.setAttribute("aria-invalid", String(Boolean(message)));
   if (error) error.textContent = message || "";
 }
+
+contactForm?.addEventListener("input", (event) => {
+  const field = event.target;
+  const validate = validators[field.name];
+
+  if (validate && field.closest(".form-row")?.classList.contains("has-error")) {
+    const result = validate(field.value);
+    setFieldError(field, result === true ? "" : result);
+  }
+});
 
 contactForm?.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -95,6 +126,7 @@ contactForm?.addEventListener("submit", (event) => {
 
   if (!isValid) {
     feedback.textContent = "Revisá los campos marcados antes de enviar.";
+    contactForm.querySelector(".has-error input, .has-error select, .has-error textarea")?.focus();
     return;
   }
 
