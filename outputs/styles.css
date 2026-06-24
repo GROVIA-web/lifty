@@ -333,28 +333,99 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); box-shado
 @media (max-width: 640px) {
   .container { width: min(100% - 28px,1180px); }
   .site-header { top: 8px; width: calc(100% - 16px); }
-  .hero { padding: 118px 0 30px; }
-  .hero-grid { gap: 26px; }
-  .hero h1 { font-size: clamp(3.15rem,16vw,4.9rem); }
+  .section { padding: 72px 0; }
+  .hero { padding: 108px 0 26px; }
+  .hero-grid { gap: 18px; }
+  .hero h1 { margin-bottom: 18px; font-size: clamp(3rem,15vw,4.4rem); }
   .hero-lead { font-size: 1rem; }
-  .hero-actions { align-items: stretch; flex-direction: column; }.button { width: 100%; }
-  .hero-proof { display: grid; gap: 7px; }
-  .hero-product { min-height: 570px; }.hero-phone { height: 500px; }
+  .hero-actions { align-items: stretch; flex-direction: column; margin-top: 22px; }
+  .button { width: 100%; min-height: 50px; }
+  .hero-proof { display: grid; grid-template-columns: repeat(3,1fr); gap: 5px; margin-top: 20px; }
+  .hero-proof span { padding-right: 5px; font-size: .66rem; line-height: 1.35; }
+  .hero-proof b { display: block; margin-bottom: 3px; }
+  .hero-product { min-height: 465px; margin-top: -4px; }
+  .hero-phone { height: 430px; }
   .float-card { padding: 10px 11px; }.float-card strong { font-size: .72rem; }.float-card small { font-size: .57rem; }
-  .verified-card { top: 2%; left: 0; }.trip-card { top: 24%; right: 0; }.track-card { left: 0; bottom: 22%; }.fare-card { right: 0; bottom: 9%; }.project-card { display: none; }
-  .hero-note { display: block; font-size: .86rem; }
-  .intro-grid { grid-template-columns: 1fr; }.intro-grid article { min-height: 100px; border-right: 0; border-bottom: 1px solid rgba(255,255,255,.1); }
-  h2 { font-size: clamp(2.25rem,12vw,3.5rem); }
-  .ecosystem-visual { min-height: 430px; }.ecosystem-visual img { height: 430px; }.ecosystem-label { display: none; }
-  .opportunity-visual { min-height: 480px; }.map-stat { padding: 9px 11px; }.stat-one { top: 5%; }.stat-two { top: 13%; }.stat-three { bottom: 5%; }
+  .verified-card { top: 3%; left: 0; }
+  .trip-card { top: 31%; right: 0; }
+  .track-card { left: 0; bottom: 10%; }
+  .fare-card, .project-card { display: none; }
+  .hero-note { display: block; margin-top: 5px; font-size: .8rem; }
+  .intro-grid { grid-template-columns: repeat(2,1fr); }
+  .intro-grid article { min-height: 120px; padding: 20px 16px; border-bottom: 1px solid rgba(255,255,255,.1); }
+  .intro-grid article:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.1); }
+  .intro-grid p { font-size: .75rem; }
+  h2 { font-size: clamp(2.15rem,11vw,3.3rem); }
+  .section-heading { margin-bottom: 34px; }
+  .platform-layout, .opportunity-layout, .security-layout, .institution-layout, .status-layout, .contact-layout { gap: 38px; }
+  .platform-list { gap: 9px; margin-top: 22px; }
+  .platform-list article { padding: 12px; }
+  .ecosystem-visual { min-height: 350px; }
+  .ecosystem-visual img { height: 350px; }
+  .ecosystem-label { display: none; }
+  .opportunity-visual { min-height: 420px; }
+  .map-stat { padding: 8px 10px; font-size: .75rem; }
+  .stat-one { top: 5%; left: 4%; }
+  .stat-two { top: 13%; right: 3%; }
+  .stat-three { right: 5%; bottom: 5%; }
+  .opportunity-points { margin-top: 22px; }
+  .opportunity-points li { padding: 12px 0; font-size: .9rem; }
   .flow-stage { padding: 12px 8px; }.flow-stage img { min-height: 310px; }.flow-badge { display: none; }
   .flow-steps { grid-template-columns: 1fr; }.flow-steps article, .flow-steps article:first-child { padding: 20px 0; border-top: 1px solid var(--border); border-left: 0; }
-  .security-mockup { min-height: 500px; }.security-mockup > img { height: 470px; }.security-float { padding: 9px 10px; }.security-driver { top: 7%; }.security-live { bottom: 11%; }
-  .security-card { min-height: 100px; }
+  .security-header { margin-bottom: 32px; }
+  .security-mockup { min-height: 440px; }
+  .security-mockup > img { height: 420px; }
+  .security-float { padding: 9px 10px; }
+  .security-driver { top: 5%; }
+  .security-live { bottom: 8%; }
+  .security-cards {
+    display: flex;
+    gap: 12px;
+    width: calc(100% + 14px);
+    margin-right: -14px;
+    padding: 4px 14px 16px 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .security-cards::-webkit-scrollbar { display: none; }
+  .security-card {
+    flex: 0 0 82vw;
+    min-height: 150px;
+    align-items: flex-start;
+    scroll-snap-align: start;
+  }
   .legal-banner { align-items: flex-start; text-align: left; }
-  .benefit-panel { min-height: 330px; padding: 26px; }
-  .institution-process { grid-template-columns: 1fr; }.process-card { min-height: 180px; }
-  .status-dashboard { min-height: 390px; padding: 10px; }.status-dashboard img { height: 370px; }.dashboard-label { top: 22px; left: 22px; }
+  .benefits-layout {
+    display: flex;
+    gap: 12px;
+    width: calc(100% + 14px);
+    margin-right: -14px;
+    padding: 4px 14px 18px 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .benefits-layout::-webkit-scrollbar { display: none; }
+  .benefit-panel { flex: 0 0 82vw; min-height: 350px; padding: 26px; scroll-snap-align: start; }
+  .benefit-panel .line-icon { margin-bottom: 38px; }
+  .institution-process {
+    display: flex;
+    gap: 12px;
+    width: calc(100% + 14px);
+    margin-right: -14px;
+    padding: 4px 14px 18px 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .institution-process::-webkit-scrollbar { display: none; }
+  .process-card { flex: 0 0 78vw; min-height: 190px; scroll-snap-align: start; }
+  .status-dashboard { min-height: 350px; padding: 8px; }
+  .status-dashboard img { height: 330px; }
+  .dashboard-label { top: 18px; left: 18px; }
+  .status-list article { padding: 12px 0; }
+  .roadmap-item { min-height: 116px; padding-top: 20px; padding-bottom: 18px; }
   .contact-copy { padding-top: 0; }.contact-layout { gap: 42px; }
   .contact-form { padding: 22px 18px; }.form-grid { grid-template-columns: 1fr; }.form-head { align-items: flex-start; flex-direction: column; }
   .footer-layout { grid-template-columns: 1fr; }.footer-legal { grid-column: auto; }
