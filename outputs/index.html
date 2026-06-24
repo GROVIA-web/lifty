@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#061b3a" />
+    <meta
+      name="description"
+      content="Lifty es una plataforma local de movilidad en desarrollo para conectar pasajeros, conductores e instituciones de Villa Dolores."
+    />
+    <title>Lifty | Movilidad local, segura y trazable</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#inicio" aria-label="Lifty, ir al inicio">
+        <img src="assets/lifty-logo.png" alt="Lifty" />
+      </a>
+
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        data-nav-toggle
+      >
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" data-nav aria-label="Navegación principal">
+        <a href="#plataforma">Plataforma</a>
+        <a href="#seguridad">Seguridad</a>
+        <a href="#instituciones">Instituciones</a>
+        <a href="#estado">Avances</a>
+        <a class="nav-cta" href="#contacto">Solicitar información</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero section-anchor" id="inicio">
+        <div class="map-texture" aria-hidden="true"></div>
+        <div class="hero-route route-a" aria-hidden="true"><i></i><i></i></div>
+        <div class="hero-route route-b" aria-hidden="true"><i></i></div>
+
+        <div class="container hero-grid">
+          <div class="hero-copy reveal">
+            <div class="hero-badges">
+              <span><i></i> Proyecto en desarrollo</span>
+              <span>Villa Dolores</span>
+            </div>
+            <p class="eyebrow">Tecnología con identidad local</p>
+            <h1>Movilidad local,<br /><em>segura y trazable.</em></h1>
+            <p class="hero-lead">
+              Una plataforma pensada para ordenar la movilidad de Villa Dolores y conectar
+              pasajeros, conductores e instituciones con mayor claridad.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#plataforma">Conocer el proyecto</a>
+              <a class="button button-glass" href="#contacto">Solicitar información</a>
+            </div>
+            <div class="hero-proof">
+              <span><b>01</b> Identidad verificada</span>
+              <span><b>02</b> Datos claros del viaje</span>
+              <span><b>03</b> Gestión ordenada</span>
+            </div>
+          </div>
+
+          <div class="hero-product reveal">
+            <div class="product-glow" aria-hidden="true"></div>
+            <img
+              class="hero-phone"
+              src="assets/hero-product.jpg"
+              alt="Mockup de la aplicación Lifty mostrando un viaje"
+            />
+
+            <article class="float-card verified-card">
+              <span class="card-symbol check-symbol"></span>
+              <div><small>Seguridad</small><strong>Conductor verificado</strong></div>
+            </article>
+            <article class="float-card trip-card">
+              <span class="pulse-dot"></span>
+              <div><small>Estado</small><strong>Viaje en curso</strong></div>
+              <b>12 min</b>
+            </article>
+            <article class="float-card track-card">
+              <span class="card-symbol pin-symbol"></span>
+              <div><small>Ubicación activa</small><strong>Seguimiento en tiempo real</strong></div>
+            </article>
+            <article class="float-card fare-card">
+              <span class="card-symbol money-symbol">$</span>
+              <div><small>Antes de confirmar</small><strong>Tarifa clara</strong></div>
+            </article>
+            <article class="float-card project-card">
+              <span class="pulse-dot"></span>
+              <div><small>Etapa actual</small><strong>Proyecto en desarrollo</strong></div>
+            </article>
+          </div>
+        </div>
+
+        <div class="container hero-note">
+          <span>Una marca local.</span>
+          <strong>Una implementación formal, gradual y responsable.</strong>
+        </div>
+      </section>
+
+      <section class="intro-strip" aria-label="Principios de Lifty">
+        <div class="container intro-grid">
+          <article><span>01</span><strong>Clara</strong><p>Información visible antes de viajar.</p></article>
+          <article><span>02</span><strong>Confiable</strong><p>Identidad, vehículo y recorrido.</p></article>
+          <article><span>03</span><strong>Cercana</strong><p>Diseñada desde la realidad local.</p></article>
+          <article><span>04</span><strong>Ordenada</strong><p>Gestión y trazabilidad operativa.</p></article>
+        </div>
+      </section>
+
+      <section class="section platform-section section-anchor" id="plataforma">
+        <div class="container platform-layout">
+          <div class="section-copy reveal">
+            <p class="eyebrow">Qué es Lifty</p>
+            <h2>Una plataforma para conectar y ordenar.</h2>
+            <p>
+              Lifty integra la experiencia del pasajero, el trabajo del conductor y la gestión
+              operativa en un mismo ecosistema digital.
+            </p>
+            <div class="platform-list">
+              <article>
+                <span class="line-icon user-icon"></span>
+                <div><strong>App pasajero</strong><small>Solicitud, tarifa y seguimiento.</small></div>
+              </article>
+              <article>
+                <span class="line-icon car-icon"></span>
+                <div><strong>App conductor</strong><small>Registro, viajes y actividad.</small></div>
+              </article>
+              <article>
+                <span class="line-icon panel-icon"></span>
+                <div><strong>Panel operativo</strong><small>Control, soporte y trazabilidad.</small></div>
+              </article>
+            </div>
+          </div>
+
+          <div class="ecosystem-visual reveal">
+            <div class="visual-grid" aria-hidden="true"></div>
+            <img src="assets/lifty-ecosystem.jpg" alt="Ecosistema digital y móvil de Lifty" />
+            <span class="ecosystem-label label-app">Aplicación</span>
+            <span class="ecosystem-label label-control">Gestión</span>
+            <span class="ecosystem-label label-city">Ciudad</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section opportunity-section">
+        <div class="opportunity-map" aria-hidden="true"></div>
+        <div class="container opportunity-layout">
+          <div class="opportunity-visual reveal">
+            <div class="city-pulse pulse-one"></div>
+            <div class="city-pulse pulse-two"></div>
+            <div class="map-route" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="map-center">
+              <span class="large-pin"></span>
+              <strong>Villa Dolores</strong>
+              <small>Zona inicial proyectada</small>
+            </div>
+            <article class="map-stat stat-one"><b>+ claridad</b><span>en cada viaje</span></article>
+            <article class="map-stat stat-two"><b>+ control</b><span>operativo</span></article>
+            <article class="map-stat stat-three"><b>+ confianza</b><span>local</span></article>
+          </div>
+
+          <div class="section-copy reveal">
+            <p class="eyebrow light">Problema y oportunidad</p>
+            <h2>Ordenar la movilidad también es mejorar la experiencia.</h2>
+            <p>
+              La digitalización puede aportar información, trazabilidad y procesos más claros para
+              quienes viajan, trabajan y gestionan.
+            </p>
+            <ul class="opportunity-points">
+              <li><span>01</span> Acceso irregular a viajes confiables.</li>
+              <li><span>02</span> Poca información antes de subir.</li>
+              <li><span>03</span> Procesos locales todavía dispersos.</li>
+              <li><span>04</span> Oportunidad de una solución formal y escalable.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section flow-section">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Cómo funciona</p>
+            <h2>Claridad en cada etapa del viaje.</h2>
+            <p>Un recorrido simple para pedir, confirmar y acompañar el trayecto.</p>
+          </div>
+
+          <div class="flow-stage reveal">
+            <div class="flow-route" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+            <img
+              src="assets/passenger-flow.jpg"
+              alt="Pantallas del flujo de viaje de la aplicación Lifty"
+            />
+            <span class="flow-badge origin-badge"><i class="mini-pin"></i> Origen</span>
+            <span class="flow-badge destination-badge"><i class="mini-pin"></i> Destino</span>
+          </div>
+
+          <div class="flow-steps">
+            <article class="reveal"><b>01</b><h3>Solicitá</h3><p>Definí origen y destino.</p></article>
+            <article class="reveal"><b>02</b><h3>Elegí</h3><p>Compará opciones y tarifa.</p></article>
+            <article class="reveal"><b>03</b><h3>Confirmá</h3><p>Revisá todos los datos.</p></article>
+            <article class="reveal"><b>04</b><h3>Seguí</h3><p>Acompañá el recorrido.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section security-section section-anchor" id="seguridad">
+        <div class="dark-map" aria-hidden="true"></div>
+        <div class="security-path" aria-hidden="true"></div>
+        <div class="container">
+          <div class="security-header reveal">
+            <div>
+              <p class="eyebrow light">Seguridad, control y trazabilidad</p>
+              <h2>Información antes, durante y después del viaje.</h2>
+            </div>
+            <p>
+              La plataforma se proyecta con procesos de validación y seguimiento para brindar
+              mayor claridad a pasajeros, conductores e instituciones.
+            </p>
+          </div>
+
+          <div class="security-layout">
+            <div class="security-mockup reveal">
+              <div class="mockup-halo"></div>
+              <img src="assets/hero-product.jpg" alt="Pantalla de seguridad y seguimiento de Lifty" />
+              <article class="security-float security-driver">
+                <span class="avatar-symbol"></span>
+                <div><small>Identidad</small><strong>Conductor validado</strong></div>
+              </article>
+              <article class="security-float security-live">
+                <span class="pulse-dot"></span>
+                <div><small>Recorrido</small><strong>Ubicación en tiempo real</strong></div>
+              </article>
+            </div>
+
+            <div class="security-cards">
+              <article class="security-card reveal">
+                <span class="line-icon shield-icon"></span>
+                <div><h3>Conductor verificado</h3><p>Identidad y documentación sujetas a validación.</p></div>
+              </article>
+              <article class="security-card reveal">
+                <span class="line-icon car-icon"></span>
+                <div><h3>Vehículo identificado</h3><p>Datos visibles para reconocerlo antes de subir.</p></div>
+              </article>
+              <article class="security-card reveal">
+                <span class="line-icon route-icon"></span>
+                <div><h3>Seguimiento</h3><p>Origen, destino y recorrido reunidos en la app.</p></div>
+              </article>
+              <article class="security-card reveal">
+                <span class="line-icon support-icon"></span>
+                <div><h3>Soporte</h3><p>Canales de asistencia proyectados para cada etapa.</p></div>
+              </article>
+              <article class="security-card reveal">
+                <span class="line-icon history-icon"></span>
+                <div><h3>Historial</h3><p>Registro para mayor control y trazabilidad operativa.</p></div>
+              </article>
+            </div>
+          </div>
+
+          <div class="legal-banner reveal">
+            <span class="legal-shield">✓</span>
+            <p>
+              La implementación final estará sujeta a validaciones legales, municipales y
+              operativas correspondientes.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section benefits-section">
+        <div class="container">
+          <div class="section-heading align-left reveal">
+            <p class="eyebrow">Beneficios</p>
+            <h2>Una plataforma. Tres impactos.</h2>
+          </div>
+
+          <div class="benefits-layout">
+            <article class="benefit-panel passenger-panel reveal">
+              <span class="benefit-number">01</span>
+              <span class="line-icon user-icon"></span>
+              <h3>Pasajeros</h3>
+              <p>Más información y confianza antes de iniciar el viaje.</p>
+              <ul><li>Tarifa visible</li><li>Datos del conductor</li><li>Seguimiento</li></ul>
+            </article>
+            <article class="benefit-panel driver-panel reveal">
+              <span class="benefit-number">02</span>
+              <span class="line-icon car-icon"></span>
+              <h3>Conductores</h3>
+              <p>Una herramienta profesional para ordenar su actividad.</p>
+              <ul><li>Solicitudes organizadas</li><li>Registro formal</li><li>Gestión clara</li></ul>
+            </article>
+            <article class="benefit-panel city-panel reveal">
+              <span class="benefit-number">03</span>
+              <span class="line-icon building-icon"></span>
+              <h3>Ciudad</h3>
+              <p>Mayor trazabilidad y un ecosistema local más moderno.</p>
+              <ul><li>Digitalización</li><li>Datos operativos</li><li>Identidad local</li></ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section institution-section section-anchor" id="instituciones">
+        <div class="institution-map" aria-hidden="true"></div>
+        <div class="container institution-layout">
+          <div class="institution-copy reveal">
+            <p class="eyebrow">Avance institucional</p>
+            <h2>Un proyecto pensado para avanzar de manera ordenada.</h2>
+            <p>
+              Lifty busca construir una implementación formal, responsable y alineada con la
+              realidad de Villa Dolores.
+            </p>
+            <a class="button button-navy" href="#contacto">Solicitar presentación institucional</a>
+          </div>
+
+          <div class="institution-process">
+            <article class="process-card reveal">
+              <span class="process-icon building-icon"></span>
+              <b>01</b><h3>Diálogo institucional</h3>
+              <p>Cámara de Comercio y actores locales.</p>
+            </article>
+            <article class="process-card reveal">
+              <span class="process-icon document-icon"></span>
+              <b>02</b><h3>Requisitos municipales</h3>
+              <p>Marco y condiciones de implementación.</p>
+            </article>
+            <article class="process-card reveal">
+              <span class="process-icon shield-icon"></span>
+              <b>03</b><h3>Validación legal</h3>
+              <p>Revisión normativa y operativa.</p>
+            </article>
+            <article class="process-card reveal">
+              <span class="process-icon people-icon"></span>
+              <b>04</b><h3>Documentación</h3>
+              <p>Identidad, licencia y vehículo.</p>
+            </article>
+            <article class="process-card reveal">
+              <span class="process-icon route-icon"></span>
+              <b>05</b><h3>Prueba piloto</h3>
+              <p>Grupo acotado y seguimiento cercano.</p>
+            </article>
+            <article class="process-card reveal">
+              <span class="process-icon check-icon"></span>
+              <b>06</b><h3>Implementación gradual</h3>
+              <p>Ajustes antes del lanzamiento local.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section status-section section-anchor" id="estado">
+        <div class="container status-layout">
+          <div class="status-dashboard reveal">
+            <img src="assets/admin-dashboard.jpg" alt="Panel administrativo proyectado de Lifty" />
+            <div class="dashboard-label">
+              <span class="pulse-dot"></span>
+              <div><small>Control operativo</small><strong>Panel en desarrollo</strong></div>
+            </div>
+          </div>
+
+          <div class="section-copy reveal">
+            <p class="eyebrow">Estado actual</p>
+            <h2>Una base sólida para la próxima etapa.</h2>
+            <div class="status-list">
+              <article><span>✓</span><div><strong>Marca e identidad</strong><small>Sistema visual definido.</small></div></article>
+              <article><span>✓</span><div><strong>Experiencia de pasajero</strong><small>Flujo principal diseñado.</small></div></article>
+              <article><span>✓</span><div><strong>Experiencia de conductor</strong><small>Boceto funcional preparado.</small></div></article>
+              <article><span>→</span><div><strong>Construcción tecnológica</strong><small>Etapa de desarrollo.</small></div></article>
+              <article><span>→</span><div><strong>Validación institucional</strong><small>Próximo paso del proyecto.</small></div></article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section roadmap-section">
+        <div class="roadmap-map" aria-hidden="true"></div>
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow light">Próximas etapas</p>
+            <h2>Un camino gradual hacia la operación local.</h2>
+          </div>
+
+          <div class="roadmap">
+            <div class="roadmap-line" aria-hidden="true"></div>
+            <article class="roadmap-item reveal"><span>1</span><h3>Validación</h3><p>Diálogo y requisitos.</p></article>
+            <article class="roadmap-item reveal"><span>2</span><h3>Ajustes</h3><p>Marco legal y procesos.</p></article>
+            <article class="roadmap-item reveal"><span>3</span><h3>Piloto</h3><p>Grupo reducido y control.</p></article>
+            <article class="roadmap-item reveal"><span>4</span><h3>Lanzamiento</h3><p>Operación local inicial.</p></article>
+            <article class="roadmap-item reveal"><span>5</span><h3>Escalamiento</h3><p>Más zonas y alianzas.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact-section section-anchor" id="contacto">
+        <div class="contact-map" aria-hidden="true"></div>
+        <div class="contact-route" aria-hidden="true"></div>
+        <div class="container contact-layout">
+          <div class="contact-copy reveal">
+            <p class="eyebrow light">Contacto</p>
+            <h2>Sumate al futuro de la movilidad local.</h2>
+            <p>
+              Dejanos tus datos para recibir novedades del proyecto o solicitar información
+              institucional.
+            </p>
+            <div class="contact-options">
+              <article><span class="line-icon mail-icon"></span><div><small>Consultas</small><strong>Información institucional</strong></div></article>
+              <article><span class="line-icon people-icon"></span><div><small>Convocatorias</small><strong>Pasajeros y conductores</strong></div></article>
+              <article><span class="line-icon building-icon"></span><div><small>Alianzas</small><strong>Comercios e instituciones</strong></div></article>
+            </div>
+          </div>
+
+          <form class="contact-form reveal" id="contact-form" novalidate>
+            <div class="form-head">
+              <div><small>Canal de contacto</small><strong>Solicitar información</strong></div>
+              <span class="form-status"><i></i> En desarrollo</span>
+            </div>
+            <div class="form-row">
+              <label for="name">Nombre</label>
+              <input id="name" name="name" type="text" autocomplete="name" placeholder="Tu nombre" required />
+              <small class="error-message"></small>
+            </div>
+            <div class="form-grid">
+              <div class="form-row">
+                <label for="phone">Teléfono</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Tu teléfono" required />
+                <small class="error-message"></small>
+              </div>
+              <div class="form-row">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" placeholder="tu@email.com" required />
+                <small class="error-message"></small>
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="interest">Tipo de interés</label>
+              <select id="interest" name="interest" required>
+                <option value="">Seleccionar</option>
+                <option>Pasajero</option>
+                <option>Conductor</option>
+                <option>Comercio o alianza</option>
+                <option>Institución</option>
+              </select>
+              <small class="error-message"></small>
+            </div>
+            <div class="form-row">
+              <label for="message">Mensaje</label>
+              <textarea id="message" name="message" rows="3" placeholder="Contanos brevemente tu consulta" required></textarea>
+              <small class="error-message"></small>
+            </div>
+            <button class="button button-primary form-submit" type="submit">Enviar solicitud</button>
+            <p class="privacy-note">Tus datos se utilizarán únicamente para responder tu consulta.</p>
+            <p class="form-feedback" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-layout">
+        <div>
+          <a class="footer-logo" href="#inicio"><img src="assets/lifty-logo.png" alt="Lifty" /></a>
+          <p>Movilidad que te eleva.</p>
+          <small>Proyecto en desarrollo · Villa Dolores</small>
+        </div>
+        <nav aria-label="Enlaces del pie">
+          <a href="#plataforma">Plataforma</a>
+          <a href="#seguridad">Seguridad</a>
+          <a href="#instituciones">Instituciones</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+        <p class="footer-legal">
+          Implementación sujeta a validaciones legales, municipales y operativas correspondientes.
+        </p>
+      </div>
+    </footer>
+
+    <a class="mobile-cta" href="#contacto">Solicitar información</a>
+    <script src="script.js"></script>
+  </body>
+</html>
