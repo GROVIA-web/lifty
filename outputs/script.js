@@ -3,6 +3,7 @@ const nav = document.querySelector("[data-nav]");
 const navToggle = document.querySelector("[data-nav-toggle]");
 const revealItems = document.querySelectorAll(".reveal");
 const contactForm = document.querySelector("#contact-form");
+const scrollProgress = document.querySelector("[data-scroll-progress]");
 const navLinks = document.querySelectorAll('.main-nav a[href^="#"]:not(.nav-cta)');
 const trackedSections = [...navLinks]
   .map((link) => document.querySelector(link.getAttribute("href")))
@@ -22,9 +23,18 @@ nav?.addEventListener("click", (event) => {
   }
 });
 
-window.addEventListener("scroll", () => {
+function updateScrollState() {
   header?.classList.toggle("is-scrolled", window.scrollY > 12);
-});
+
+  if (scrollProgress) {
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = scrollable > 0 ? Math.min(window.scrollY / scrollable, 1) : 0;
+    scrollProgress.style.transform = `scaleX(${progress})`;
+  }
+}
+
+window.addEventListener("scroll", updateScrollState, { passive: true });
+updateScrollState();
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && nav?.classList.contains("is-open")) {

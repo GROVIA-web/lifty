@@ -50,6 +50,26 @@ ul { margin: 0; padding: 0; list-style: none; }
   transition: transform .2s ease;
 }
 .skip-link:focus { transform: translateY(0); }
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 220;
+  height: 3px;
+  background: rgba(255,255,255,.08);
+  pointer-events: none;
+}
+.scroll-progress span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--teal-dark), var(--teal));
+  box-shadow: 0 0 14px rgba(16,198,183,.45);
+  transform: scaleX(0);
+  transform-origin: left center;
+  will-change: transform;
+}
 
 .site-header {
   position: fixed;
@@ -164,6 +184,15 @@ textarea:focus-visible {
 .track-card { left: 3%; bottom: 20%; }
 .fare-card { right: 2%; bottom: 9%; }
 .project-card { top: 52%; left: -3%; }
+.hero-product .float-card { animation: card-drift 6s ease-in-out infinite; }
+.hero-product .trip-card { animation-delay: -1.5s; }
+.hero-product .track-card { animation-delay: -3s; }
+.hero-product .fare-card { animation-delay: -4.5s; }
+.hero-product .project-card { animation-delay: -2.2s; }
+@keyframes card-drift {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -5px; }
+}
 .hero-note { position: relative; z-index: 3; display: flex; justify-content: center; gap: 8px; margin-top: 18px; padding-top: 23px; border-top: 1px solid rgba(255,255,255,.12); color: rgba(255,255,255,.52); text-align: center; }
 .hero-note strong { color: var(--white); }
 
@@ -278,6 +307,17 @@ h3 { color: var(--navy); }
 .benefits-section { background: linear-gradient(115deg,#fff,#f2f9fa); }
 .benefits-layout { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
 .benefit-panel { position: relative; min-height: 390px; padding: 32px; overflow: hidden; border: 1px solid rgba(255,255,255,.9); border-radius: var(--radius); background: rgba(255,255,255,.76); box-shadow: var(--shadow); backdrop-filter: blur(16px); transition: transform .2s ease; }
+.benefit-panel::before,
+.process-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 22px;
+  left: 22px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(16,198,183,.72), transparent);
+  opacity: .6;
+}
 .benefit-panel:hover { transform: translateY(-5px); }
 .benefit-panel::after { content: ""; position: absolute; right: -80px; bottom: -90px; width: 210px; height: 210px; border: 1px solid rgba(16,198,183,.15); border-radius: 50%; }
 .benefit-number { position: absolute; top: 26px; right: 28px; color: var(--teal-dark); font-size: .72rem; font-weight: 850; }
@@ -287,6 +327,25 @@ h3 { color: var(--navy); }
 .driver-panel { background: linear-gradient(145deg,rgba(255,255,255,.92),rgba(16,198,183,.08)); }
 .city-panel { color: var(--white); border-color: rgba(6,27,58,.1); background: linear-gradient(145deg,var(--navy),var(--petrol)); }
 .city-panel h3 { color: var(--white); }.city-panel p, .city-panel ul { color: rgba(255,255,255,.68); }
+.mid-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  margin-top: 28px;
+  padding: 25px 28px;
+  overflow: hidden;
+  border: 1px solid rgba(16,198,183,.22);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 10% 50%, rgba(16,198,183,.12), transparent 32%),
+    rgba(255,255,255,.76);
+  box-shadow: 0 22px 58px rgba(6,27,58,.1);
+  backdrop-filter: blur(16px);
+}
+.mid-cta small, .mid-cta strong { display: block; }
+.mid-cta small { margin-bottom: 3px; color: var(--teal-dark); font-size: .72rem; font-weight: 850; text-transform: uppercase; }
+.mid-cta strong { color: var(--navy); font-size: 1.12rem; }
 
 .institution-section { overflow: hidden; background: linear-gradient(120deg,#fff 0%,#fff 43%,#edf8fa 100%); }
 .institution-map { opacity: .14; filter: invert(1); }
@@ -353,6 +412,7 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); box-shado
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
   .reveal { opacity: 1; transform: none; }
+  .hero-product .float-card { animation: none; }
 }
 
 @media (max-width: 980px) {
@@ -456,6 +516,7 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); box-shado
   .benefits-layout::-webkit-scrollbar { display: none; }
   .benefit-panel { flex: 0 0 82vw; min-height: 350px; padding: 26px; scroll-snap-align: start; }
   .benefit-panel .line-icon { margin-bottom: 38px; }
+  .mid-cta { align-items: stretch; flex-direction: column; padding: 22px; }
   .institution-process {
     display: flex;
     gap: 12px;
