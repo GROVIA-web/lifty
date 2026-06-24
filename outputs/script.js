@@ -4,6 +4,7 @@ const navToggle = document.querySelector("[data-nav-toggle]");
 const revealItems = document.querySelectorAll(".reveal");
 const contactForm = document.querySelector("#contact-form");
 const scrollProgress = document.querySelector("[data-scroll-progress]");
+const mobileCta = document.querySelector(".mobile-cta");
 const navLinks = document.querySelectorAll('.main-nav a[href^="#"]:not(.nav-cta)');
 const trackedSections = [...navLinks]
   .map((link) => document.querySelector(link.getAttribute("href")))
@@ -31,6 +32,8 @@ function updateScrollState() {
     const progress = scrollable > 0 ? Math.min(window.scrollY / scrollable, 1) : 0;
     scrollProgress.style.transform = `scaleX(${progress})`;
   }
+
+  mobileCta?.classList.toggle("is-visible", window.scrollY > 520);
 }
 
 window.addEventListener("scroll", updateScrollState, { passive: true });
