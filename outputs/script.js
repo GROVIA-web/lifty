@@ -2,7 +2,8 @@ const header = document.querySelector("[data-header]");
 const nav = document.querySelector("[data-nav]");
 const navToggle = document.querySelector("[data-nav-toggle]");
 const revealItems = document.querySelectorAll(".reveal");
-const contactForm = document.querySelector("#contact-form");
+const GOOGLE_SHEETS_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycby4GkuCrRj2ksznIoHGbzVt5WMMHBltG6jYfPME5_WMK1LYNunDJykDuC32g_PSh9SP/exec";
+const preinscripcionForm = document.querySelector("#preinscripcion-form");
 const scrollProgress = document.querySelector("[data-scroll-progress]");
 const mobileCta = document.querySelector(".mobile-cta");
 const navLinks = document.querySelectorAll('.main-nav a[href^="#"]:not(.nav-cta)');
@@ -90,24 +91,24 @@ if ("IntersectionObserver" in window) {
 }
 
 const validators = {
-  name: (value) => value.trim().length >= 2 || "Ingresá tu nombre.",
-  phone: (value) => value.trim().length >= 7 || "Ingresá un teléfono válido.",
+  nombreCompleto: (value) => value.trim().length >= 2 || "Ingresá tu nombre completo.",
+  documento: (value) => value.trim().length >= 6 || "Ingresá tu documento.",
+  telefono: (value) => value.trim().length >= 7 || "Ingresá un teléfono válido.",
   email: (value) =>
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim()) || "Ingresá un email válido.",
-  interest: (value) => value.trim() !== "" || "Elegí una opción.",
-  message: (value) => value.trim().length >= 8 || "Contanos brevemente tu interés.",
+  vehiculo: (value) => value.trim() !== "" || "Elegí una opción.",
 };
 
 function setFieldError(field, message) {
-  const row = field.closest(".form-row");
+  const row = field?.closest(".form-row");
   const error = row?.querySelector(".error-message");
 
   row?.classList.toggle("has-error", Boolean(message));
-  field.setAttribute("aria-invalid", String(Boolean(message)));
+  field?.setAttribute("aria-invalid", String(Boolean(message)));
   if (error) error.textContent = message || "";
 }
 
-contactForm?.addEventListener("input", (event) => {
+preinscripcionForm?.addEventListener("input", (event) => {
   const field = event.target;
   const validate = validators[field.name];
 
@@ -117,14 +118,26 @@ contactForm?.addEventListener("input", (event) => {
   }
 });
 
-contactForm?.addEventListener("submit", (event) => {
+preinscripcionForm?.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  const formData = new FormData(contactForm);
+  const formData = new FormData(preinscripcionForm);
+  const submitButton = preinscripcionForm.querySelector("button[type='submit']");
+  const formMessage = document.querySelector("#form-message");
+  const payload = {
+    nombreCompleto: formData.get("nombreCompleto")?.trim(),
+    documento: formData.get("documento")?.trim(),
+    telefono: formData.get("telefono")?.trim(),
+    email: formData.get("email")?.trim(),
+    vehiculo: formData.get("vehiculo"),
+    mensaje: formData.get("mensaje")?.trim(),
+    origen: "Landing Lifty - Preinscripción",
+    fecha: new Date().toISOString(),
+  };
   let isValid = true;
 
   Object.entries(validators).forEach(([name, validate]) => {
-    const field = contactForm.elements[name];
+    const field = preinscripcionForm.elements[name];
     const result = validate(String(formData.get(name) || ""));
 
     if (result !== true) {
@@ -135,15 +148,58 @@ contactForm?.addEventListener("submit", (event) => {
     }
   });
 
-  const feedback = contactForm.querySelector(".form-feedback");
-
   if (!isValid) {
-    feedback.textContent = "Revisá los campos marcados antes de enviar.";
-    contactForm.querySelector(".has-error input, .has-error select, .has-error textarea")?.focus();
+    if (formMessage) {
+      formMessage.textContent = "Completá todos los campos obligatorios.";
+      formMessage.className = "form-message error";
+    }
+    preinscripcionForm.querySelector(".has-error input, .has-error select, .has-error textarea")?.focus();
     return;
   }
 
-  feedback.textContent =
-    "¡Gracias! Tu interés quedó validado y listo para conectarse al canal de contacto.";
-  contactForm.reset();
+  if (GOOGLE_SHEETS_WEBHOOK_URL === "PEGAR_ACA_LA_URL_DE_APPS_SCRIPT") {
+    if (formMessage) {
+      formMessage.textContent =
+        "Falta pegar la URL de Google Apps Script para activar el envío.";
+      formMessage.className = "form-message error";
+    }
+    return;
+  }
+
+  try {
+    submitButton.disabled = true;
+    submitButton.textContent = "Enviando...";
+    if (formMessage) {
+      formMessage.textContent = "";
+      formMessage.className = "form-message";
+    }
+
+    await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    preinscripcionForm.reset();
+
+    if (formMessage) {
+      formMessage.textContent =
+        "Preinscripción enviada correctamente. Nos pondremos en contacto.";
+      formMessage.className = "form-message success";
+    }
+  } catch (error) {
+    console.error("Error enviando preinscripción:", error);
+
+    if (formMessage) {
+      formMessage.textContent =
+        "No pudimos enviar la preinscripción. Intentá nuevamente o contactanos por WhatsApp.";
+      formMessage.className = "form-message error";
+    }
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = "Enviar preinscripción";
+  }
 });

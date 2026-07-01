@@ -454,60 +454,64 @@
         <div class="contact-route" aria-hidden="true"></div>
         <div class="container contact-layout">
           <div class="contact-copy reveal">
-            <p class="eyebrow light">Contacto</p>
-            <h2>Sumate al futuro de la movilidad local.</h2>
+            <p class="eyebrow light">Preinscripción</p>
+            <h2>Preinscripción a una movilidad más eficiente</h2>
             <p>
-              Dejanos tus datos para recibir novedades del proyecto o solicitar información
-              institucional.
+              Completá tus datos para registrar tu interés en formar parte del proyecto Lifty.
             </p>
             <div class="contact-options">
-              <article><span class="line-icon mail-icon"></span><div><small>Consultas</small><strong>Información institucional</strong></div></article>
+              <article><span class="line-icon check-icon"></span><div><small>Registro</small><strong>Inter?s verificado</strong></div></article>
               <article><span class="line-icon people-icon"></span><div><small>Convocatorias</small><strong>Pasajeros y conductores</strong></div></article>
-              <article><span class="line-icon building-icon"></span><div><small>Alianzas</small><strong>Comercios e instituciones</strong></div></article>
+              <article><span class="line-icon pin-icon"></span><div><small>Operación local</small><strong>Villa Dolores y zona</strong></div></article>
             </div>
           </div>
 
-          <form class="contact-form reveal" id="contact-form" novalidate>
+          <form class="contact-form reveal" id="preinscripcion-form" novalidate>
             <div class="form-head">
-              <div><small>Canal de contacto</small><strong>Solicitar información</strong></div>
-              <span class="form-status"><i></i> En desarrollo</span>
+              <div><small>Formulario oficial</small><strong>Enviar preinscripción</strong></div>
+              <span class="form-status"><i></i> Proyecto en desarrollo</span>
             </div>
-            <div class="form-row">
-              <label for="name">Nombre</label>
-              <input id="name" name="name" type="text" autocomplete="name" placeholder="Tu nombre" required />
+            <div class="form-group form-row">
+              <label for="nombreCompleto">Nombre completo</label>
+              <input id="nombreCompleto" name="nombreCompleto" type="text" autocomplete="name" placeholder="Tu nombre completo" required />
               <small class="error-message"></small>
             </div>
             <div class="form-grid">
-              <div class="form-row">
-                <label for="phone">Teléfono</label>
-                <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Tu teléfono" required />
+              <div class="form-group form-row">
+                <label for="documento">Documento</label>
+                <input id="documento" name="documento" type="text" inputmode="numeric" placeholder="DNI" required />
                 <small class="error-message"></small>
               </div>
-              <div class="form-row">
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" autocomplete="email" placeholder="tu@email.com" required />
+              <div class="form-group form-row">
+                <label for="telefono">Número de teléfono</label>
+                <input id="telefono" name="telefono" type="tel" autocomplete="tel" placeholder="Tu teléfono" required />
                 <small class="error-message"></small>
               </div>
             </div>
-            <div class="form-row">
-              <label for="interest">Tipo de interés</label>
-              <select id="interest" name="interest" required>
+            <div class="form-group form-row">
+              <label for="email">Correo electrónico</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="tu@email.com" required />
+              <small class="error-message"></small>
+            </div>
+            <div class="form-group form-row">
+              <label for="vehiculo">¿Usás moto o auto?</label>
+              <select id="vehiculo" name="vehiculo" required>
                 <option value="">Seleccionar</option>
-                <option>Pasajero</option>
-                <option>Conductor</option>
-                <option>Comercio o alianza</option>
-                <option>Institución</option>
+                <option value="Auto">Auto</option>
+                <option value="Moto">Moto</option>
+                <option value="Ambos">Ambos</option>
+                <option value="Todavía no definido">Todavía no definido</option>
               </select>
               <small class="error-message"></small>
             </div>
-            <div class="form-row">
-              <label for="message">Mensaje</label>
-              <textarea id="message" name="message" rows="3" placeholder="Contanos brevemente tu consulta" required></textarea>
+            <div class="form-group form-row">
+              <label for="mensaje">Mensaje / aclaración opcional</label>
+              <textarea id="mensaje" name="mensaje" rows="3" placeholder="Contanos brevemente tu consulta"></textarea>
               <small class="error-message"></small>
             </div>
-            <button class="button button-primary form-submit" type="submit">Enviar solicitud</button>
-            <p class="privacy-note">Tus datos se utilizarán únicamente para responder tu consulta.</p>
-            <p class="form-feedback" role="status" aria-live="polite"></p>
+            <button class="button button-primary primary-button form-submit" type="submit">Enviar preinscripción</button>
+            <p class="privacy-note">Tus datos se utilizarán únicamente para gestionar la preinscripción al proyecto.</p>
+            <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
           </form>
         </div>
       </section>
